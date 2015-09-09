@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-facebook-invite"
+        version="0.1.0">
+
+    <name>InvitePlugin</name>
+    <description>Facebook AppInvite Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,plugin,facebook,invite</keywords>
+
+    <engines>
+        <engine name="cordova-android" version=">=4.0.0-dev" />
+        <engine name="cordova-ios" version=">=4.0.0-dev" />
+    </engines>
+
+    <js-module src="www/InvitePlugin.js" name="InvitePlugin">
+        <clobbers target="InvitePlugin" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="InvitePlugin">
+                <param name="android-package" value="com.wazzurb.invite.InvitePlugin"/>
+            </feature>
+            <access origin="https://m.facebook.com" />
+            <access origin="https://graph.facebook.com" />
+            <access origin="https://api.facebook.com" />
+            <access origin="https://*.fbcdn.net" />
+            <access origin="https://*.akamaihd.net" />
+        </config-file>
+
+        <source-file src="src/android/InvitePlugin.java" target-dir="src/com/wazzurb/invite"/>
+
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="InvitePlugin">
+                <param name="ios-package" value="InvitePlugin"/>
+            </feature>
+            <access origin="https://m.facebook.com" />
+            <access origin="https://graph.facebook.com" />
+            <access origin="https://api.facebook.com" />
+            <access origin="https://*.fbcdn.net" />
+            <access origin="https://*.akamaihd.net" />
+        </config-file>
+
+        <header-file src="src/ios/InvitePlugin.h" target-dir="InvitePlugin"/>
+        <source-file src="src/ios/InvitePlugin.m" target-dir="InvitePlugin"/>
+
+    </platform>
+
+</plugin>
